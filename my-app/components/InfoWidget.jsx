@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 
-
 export default function InfoWidget () {
     return (
         <View style={styles.widget}>
