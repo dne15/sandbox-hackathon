@@ -14,10 +14,16 @@ const AirQuality = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            universalAqi: true,
             location: {
-              latitude: 51.5072,
-              longitude: 0.1276,
+              latitude: 31.582045,
+              longitude: 74.329376,
             },
+            extraComputations: [
+              "HEALTH_RECOMMENDATIONS",
+              "LOCAL_AQI"
+            ],
+            languageCode: "en"
           }),
         }
       );
@@ -30,6 +36,7 @@ const AirQuality = () => {
 
   // Extract the category if airQuality data is available
   const category = airQuality?.indexes?.[0]?.category;
+  const recommendation = airQuality?.healthRecommendations.generalPopulation;
 
   return (
     <View>
@@ -38,6 +45,7 @@ const AirQuality = () => {
         <View>
           <Text>Air Quality Category:</Text>
           <Text>{category || 'No category data available'}</Text>
+          <Text>{recommendation}</Text>
         </View>
       )}
     </View>
