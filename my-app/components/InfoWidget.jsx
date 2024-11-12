@@ -3,12 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 
 
 
-export default function InfoWidget () {
+export default function InfoWidget ({ title, data, icon }) {
     return (
         <View style={styles.widget}>
-        <Text>☁️</Text>
-        <Text>Weather</Text>
-        <Text>Sunny</Text>
+            <Text>{icon}</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.data}>{data}</Text>
         </View>
     )
 }
@@ -17,8 +17,17 @@ const styles = StyleSheet.create({
     widget: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
         width: "25%",
+    },
+    title: {
+        textAlign: "center",
+        fontWeight: "bold",
+        fontSize: "13px",
+        marginTop: "2%",
+    },
+    data: {
+        marginTop: "5%",
+        textAlign: "center",
     }
   });
