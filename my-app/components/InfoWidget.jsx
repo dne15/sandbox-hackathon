@@ -18,15 +18,18 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         width: "25%",
+        
     },
     title: {
         textAlign: "center",
         fontWeight: "bold",
         fontSize: "13px",
         marginTop: "2%",
+        color: "#F2F4F8"
     },
     data: {
         marginTop: "5%",
         textAlign: "center",
+        color: "#F2F4F8"
     }
   });

@@ -30,40 +30,40 @@ const [recommendation, setRecommendation] = useState(null);
 
   return(
     <>
-        <View style={styles.body}>
-          <Header /> 
-          <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
-          <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
-          <MapApi />
-          <Recommendations  
-            weatherData={weatherData} 
-            carbonIntensity={carbonIntensity}
-            airRecommendation={recommendation}
-            airQuality={airQualityData}
-          />
-          <GenerateButton />
-        </View>
+      <View style={styles.body}>
+        <Header /> 
+        <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
+        <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
+        <MapApi />
+        <Recommendations  
+          weatherData={weatherData} 
+          carbonIntensity={carbonIntensity}
+          airRecommendation={recommendation}
+          airQuality={airQualityData}
+        />
+        <GenerateButton />
+      </View>
 
-        <WeatherApi cityName={cityName} setWeatherData={setWeatherData} />
+      <WeatherApi cityName={cityName} setWeatherData={setWeatherData} />
         {weatherData && (
-        <CarbonApi setCarbonIntensity={setCarbonIntensity} />
+      <CarbonApi setCarbonIntensity={setCarbonIntensity} />
         )}
         {weatherData && (
-        <PollutionApi
-          latitude={weatherData.lat}
-          longitude={weatherData.lon}
-          setAirQualityData={setAirQualityData}
-          setRecommendation={setRecommendation}
-        />
+      <PollutionApi
+        latitude={weatherData.lat}
+        longitude={weatherData.lon}
+        setAirQualityData={setAirQualityData}
+        setRecommendation={setRecommendation}
+      />
 
-      )}
+        )}
     </>
   )
 }
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: "#f4f1de",
+    backgroundColor: "#F2F4F8",
     height: "100%",
     overflow: "scroll"
   }

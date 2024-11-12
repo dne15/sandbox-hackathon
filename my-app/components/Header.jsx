@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: "50px",
     paddingVertical: 15,
-    backgroundColor: '#f4f1de',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#42628A'
   },
   headerText: {
     fontSize: 20,
-    color: '#e07a5f',
+    color: '#f4f1de',
     fontWeight: 'bold',
   },
 });

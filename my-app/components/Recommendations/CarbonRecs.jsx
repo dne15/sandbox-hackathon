@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 function CarbonRecs({ carbonIntensity }) {
 
@@ -58,10 +58,11 @@ function CarbonRecs({ carbonIntensity }) {
   };
 
   return (
-    <View>
+    <View >
       {carbonIntensity ? (
-        <View>
-          <Text>Carbon Intesity Recommendation: {carbonRecommendation(carbonIntensity)}</Text>
+        <View style={styles.info}>
+          <Text style={styles.container}>Carbon Intesity</Text>
+          <Text style={styles.container2}>{carbonRecommendation(carbonIntensity)}</Text>
         </View>
       ) : (
         <Text>Loading...</Text>
@@ -71,3 +72,17 @@ function CarbonRecs({ carbonIntensity }) {
 }
 
 export default CarbonRecs;
+
+const styles = StyleSheet.create({
+  container: {
+    color: "#001629",
+    width: '25%'
+  },
+  container2: {
+    width: "75%"
+  },
+  info: {
+    display: "flex",
+    flexDirection: "row"
+  }
+})

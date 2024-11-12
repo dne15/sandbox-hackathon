@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
         // alignItems: "center",
         justifyContent: "space-evenly",
         width: "100%",
-        backgroundColor: "#81b29a",
         minHeight: "12.5%",
-        padding: "1.25%"
+        padding: "1.25%",
+        backgroundColor: "#42628A",
     } 
   });

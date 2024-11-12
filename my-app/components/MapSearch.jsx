@@ -17,20 +17,21 @@ const styles = StyleSheet.create({
     container: {
         height: 50,
         width: "100%",
-        backgroundColor: "#3d405b",
         justifyContent: "center",
-        alignItems: "center"
-    },
+        alignItems: "center",
+        backgroundColor: "#e07a5f"
+        },
     form: {
         flexDirection: "row",
         alignItems: "center"
     },
     bar: {
+        backgroundColor: "#e07a5f",
         width: 250,
         height: 25,
         borderRadius: 25,
         paddingLeft: 10,
-        backgroundColor: "#f4f1de"
+        color: "#F2F4F8"
     },
     button: {
         marginLeft: 10,
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     buttonText: {
-        color: "#f4f1de",
+        color: "#F2F4F8",
         fontSize: 16,
     }
 });
