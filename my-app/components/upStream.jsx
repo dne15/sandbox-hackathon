@@ -6,7 +6,6 @@ import WeatherApi from './Api/WeatherApi';
 import CarbonApi from './Api/CarbonApi'
 import MapApi from './Api/MapApi'
 import PollutionApi from './Api/PollutionApi'
-import Recommendation from './Recommendation';
 
 import { useState } from 'react'
 import { View } from 'react-native'

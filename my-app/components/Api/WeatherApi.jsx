@@ -13,7 +13,7 @@ function WeatherApi({ cityName, setWeatherData }) {
             const { lat, lon } = data[0];
             fetch(
               `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=72981ed094d399cae0ff841f806f4508`
-            )
+            ) 
               .then((response) => response.json())
               .then((weatherData) => {
                 const weatherInfo = {
