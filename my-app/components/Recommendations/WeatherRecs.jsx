@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import WeatherApi from '../Api/WeatherApi';
+import { View, Text } from "react-native";
 
-function WeatherRecs() {
-    const [weather, setWeather] = useState(null)
+function WeatherRecs({ weather }) {
     const [temp, setTemp] = useState(null);
     const [recommendations, setRecommendations] = useState([]);
 
-    const celsius = weather ? ((weather.main.temp - 273.15).toFixed(2)) : null;
+    const celsius = weather ? ((weather.tempetature - 273.15).toFixed(1)) : null;
 
     useEffect(() => {
         if (celsius !== null) {
@@ -27,7 +25,7 @@ function WeatherRecs() {
 
     useEffect(() => {
         if (weather && temp) {
-          const recs = weatherRecommendation(weather.weather[0].description, temp);
+          const recs = weatherRecommendation(weather.description, temp);
           setRecommendations(recs);
         }
       }, [weather, temp]);
@@ -195,7 +193,6 @@ function WeatherRecs() {
 
   return (
     <View>
-      <WeatherApi setWeather={setWeather} />
       {weather ? (
         <View>
           <Text>Weather Recommendations: 

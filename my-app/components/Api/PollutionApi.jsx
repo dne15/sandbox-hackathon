@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Button } from 'react-native';
+import { useEffect } from 'react';
 
-const AirQuality = ({ setAirQualityData, latitude, longitude, setRecommendation }) => {
-  const [airQuality, setAirQuality] = useState(null);
-
+const PollutionApi = ({ setAirQualityData, latitude, longitude, setRecommendation }) => {
   useEffect(() => {
     const fetchAirQuality = async () => {
       try {
@@ -14,7 +11,6 @@ const AirQuality = ({ setAirQualityData, latitude, longitude, setRecommendation 
             headers: {
               'Content-Type': 'application/json',
             },
-
             body: JSON.stringify({
               universalAqi: true,
               location: {
@@ -30,10 +26,9 @@ const AirQuality = ({ setAirQualityData, latitude, longitude, setRecommendation 
           }
         );
         const data = await response.json();
-        setAirQuality(data);
         setAirQualityData(data);
-      const recommendation = data?.healthRecommendations?.generalPopulation;
-      setRecommendation(recommendation);
+        const recommendation = data?.healthRecommendations?.generalPopulation;
+        setRecommendation(recommendation);
       } catch (error) {
         console.error('Error fetching air quality data:', error);
       }
@@ -43,11 +38,8 @@ const AirQuality = ({ setAirQualityData, latitude, longitude, setRecommendation 
       fetchAirQuality();
     }
   }, [latitude, longitude]);
-  
 
-fetchAirQuality()
-  }, [setAirQuality, setRecommendation]);
-
-  return 
+  return null;
+};
 
 export default PollutionApi;

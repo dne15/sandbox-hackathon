@@ -1,10 +1,6 @@
-import { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import CarbonAPI from '../Api/CarbonApi';
+import { View, Text } from "react-native";
 
-function CarbonRecs() {
-  const [carbonIntensity, setCarbonIntensity] = useState(null);
-  const [carbonLevel, setCarbonLevel] = useState(null);
+function CarbonRecs({ carbonIntensity }) {
 
   const carbonRecommendation = (level) => {
     let messages = [];
@@ -63,10 +59,9 @@ function CarbonRecs() {
 
   return (
     <View>
-      <CarbonAPI setCarbonIntensity={setCarbonIntensity} setCarbonLevel={setCarbonLevel} />
       {carbonIntensity ? (
         <View>
-          <Text>Carbon Intesity Recommendation: {carbonRecommendation(carbonLevel)}</Text>
+          <Text>Carbon Intesity Recommendation: {carbonRecommendation(carbonIntensity)}</Text>
         </View>
       ) : (
         <Text>Loading...</Text>

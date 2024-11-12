@@ -1,31 +1,24 @@
-import { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import fetch from 'node-fetch';
+import { useEffect } from "react";
 
-function CarbonAPI({ setCarbonIntensity, setCarbonLevel }) {
+function CarbonApi({ setCarbonIntensity }) {
+  const headers = {
+    'Accept': 'application/json'
+  };
 
-const headers = {
-  'Accept':'application/json'
- 
-};
- useEffect(() => {
-    fetch('https://api.carbonintensity.org.uk/intensity',
-{
-  method: 'GET',
-  headers: headers
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-    setCarbonIntensity(body);
-        const level = body.data?.[0]?.intensity?.index;
-        setCarbonLevel(level);
-});
-   .catch((error) => console.error("Error fetching carbon intensity:", error));
- }, [])
+  useEffect(() => {
+    fetch('https://api.carbonintensity.org.uk/intensity', {
+      method: 'GET',
+      headers: headers
+    })
+      .then((res) => res.json())
+      .then((body) => {
+        const intensity = body.data?.[0]?.intensity?.index;
+        setCarbonIntensity(intensity);
+      })
+      .catch((error) => console.error("Error fetching carbon intensity:", error));
+  }, []);
 
- return 
+  return null;
 }
 
-export default CarbonAPI;
+export default CarbonApi;
