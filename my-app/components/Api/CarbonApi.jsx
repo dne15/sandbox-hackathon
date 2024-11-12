@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import fetch from 'node-fetch';
 
-function CarbonAPI({ setCarbonIntensity }) {
+function CarbonAPI({ setCarbonIntensity, setCarbonLevel }) {
 
-const request = require('node-fetch');
- 
 const headers = {
   'Accept':'application/json'
  
@@ -19,14 +18,14 @@ const headers = {
     return res.json();
 }).then(function(body) {
     console.log(body);
-    setCarbonIntensity(body.data[0].intensity.index)
+    setCarbonIntensity(body);
+        const level = body.data?.[0]?.intensity?.index;
+        setCarbonLevel(level);
 });
+   .catch((error) => console.error("Error fetching carbon intensity:", error));
  }, [])
 
- return (
-    <View>
-    </View>
-  );
+ return 
 }
 
-export default CarbonAPI
+export default CarbonAPI;

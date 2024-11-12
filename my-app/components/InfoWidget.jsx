@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-
-
 export default function InfoWidget ({ title, data, icon }) {
+
     return (
         <View style={styles.widget}>
             <Text>{icon}</Text>

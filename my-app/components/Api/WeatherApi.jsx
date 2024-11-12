@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { View } from "react-native";
-
 function WeatherApi({ cityName, setWeatherData }) {
   useEffect(() => {
+
     if (cityName) {
       fetch(
         `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=72981ed094d399cae0ff841f806f4508`
@@ -35,10 +34,8 @@ function WeatherApi({ cityName, setWeatherData }) {
     }
   }, [cityName]);
 
-  return (
-    <View>
-    </View>
-  );
+  return 
 }
 
 export default WeatherApi;
+
