@@ -6,10 +6,10 @@ import InfoWidget from './InfoWidget'
 export default function InfoWidgetContainer ({ weatherData, airQualityData, carbonIntensity }) {
     return (
         <View style={styles.container}>
-          <InfoWidget title="Weather" data={weatherData ? weatherData.description : ''}></InfoWidget>
-          <InfoWidget title="Temp" data={weatherData ? `${weatherData.temperature}ºC` : ''}></InfoWidget>
-          <InfoWidget title="Air Quality" data={airQualityData ? airQualityData.indexes[0].category : ''}></InfoWidget>
-          <InfoWidget title="Carbon Intensity" data={carbonIntensity ? carbonIntensity : ''}></InfoWidget>
+          <InfoWidget icon="🌦️" title="Weather" data={weatherData ? weatherData.description : ''}></InfoWidget>
+          <InfoWidget icon="🔥" title="Temp" data={weatherData ? `${weatherData.temperature}ºC` : ''}></InfoWidget>
+          <InfoWidget icon="🌬️" title="Air Quality" data={airQualityData ? airQualityData.indexes[0].category : ''}></InfoWidget>
+          <InfoWidget icon="🌪️" title="Carbon Intensity" data={carbonIntensity ? carbonIntensity : ''}></InfoWidget>
         </View>
     )
 }
@@ -23,5 +23,6 @@ const styles = StyleSheet.create({
         width: "100%",
         backgroundColor: "#81b29a",
         minHeight: "12.5%",
+        padding: "1.25%"
     } 
   });

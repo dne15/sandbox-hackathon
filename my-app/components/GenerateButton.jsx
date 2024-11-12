@@ -4,7 +4,7 @@ export default function GenerateButton() {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>What can you do, bitch?</Text>
+                <Text style={styles.buttonText}>What can you do?</Text>
             </TouchableOpacity>
         </View>
     );

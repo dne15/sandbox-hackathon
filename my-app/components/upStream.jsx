@@ -46,7 +46,7 @@ const [carbonIntensity, setCarbonIntensity] = useState(null);
         />
       )}
         <MapApi />
-        {/* <Recommendation recommendation={airQualityData.healthRecommendations.generalPopulation}/> */}
+        <Recommendation recommendation={airQualityData.healthRecommendations.generalPopulation}/>
         <GenerateButton></GenerateButton>
     </View>
   )
