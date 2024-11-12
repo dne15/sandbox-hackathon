@@ -13,9 +13,11 @@ export default function MapApi() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
+    height: 375
   },
   map: {
-    width: '80%',
-    height: '80%',
+    width: '100%',
+    height: '100%',
   },
 });

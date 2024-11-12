@@ -1,12 +1,12 @@
 import { StyleSheet, View, TextInput, TouchableOpacity, Text } from "react-native";
 
-export default function MapSearch() {
+export default function MapSearch({ onTyping, onSubmit }) {
     return (
         <View style={styles.container}>
             <View style={styles.form}>
-                <TextInput style={styles.bar} placeholder="Search" />
+                <TextInput onChangeText={onTyping} style={styles.bar} placeholder="Search" />
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Search</Text>
+                    <Text onPress={onSubmit} style={styles.buttonText}>Search</Text>
                 </TouchableOpacity>
             </View>
         </View>

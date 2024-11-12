@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
-function CarbonAPI() {
-
-const [carbonIntensity, setCarbonIntensity] = useState(null);
+function CarbonAPI({ setCarbonIntensity }) {
 
 const request = require('node-fetch');
  
@@ -21,18 +19,12 @@ const headers = {
     return res.json();
 }).then(function(body) {
     console.log(body);
-    setCarbonIntensity(body)
+    setCarbonIntensity(body.data[0].intensity.index)
 });
  }, [])
 
  return (
     <View>
-      <Text>Carbon Intensity</Text>
-      {carbonIntensity ? (
-        <Text>{carbonIntensity.data[0].intensity.index}</Text>
-      ) : (
-        <Text>Loading...</Text>
-      )}
     </View>
   );
 }
