@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, Button } from 'react-native';
 
-const AirQuality = () => {
-  const [airQuality, setAirQuality] = useState(null);
+const PollutionApi = ({setAirQuality, setRecommendation}) => {
+  
+  useEffect(() => {
 
   const fetchAirQuality = async () => {
     try {
@@ -29,27 +30,18 @@ const AirQuality = () => {
       );
       const data = await response.json();
       setAirQuality(data);
+      const recommendation = data?.healthRecommendations?.generalPopulation;
+      setRecommendation(recommendation);
     } catch (error) {
       console.error('Error fetching air quality data:', error);
     }
   };
 
-  // Extract the category if airQuality data is available
-  const category = airQuality?.indexes?.[0]?.category;
-  const recommendation = airQuality?.healthRecommendations.generalPopulation;
+fetchAirQuality()
+  }, [setAirQuality, setRecommendation]);
 
-  return (
-    <View>
-      <Button title="Get Air Quality" onPress={fetchAirQuality} />
-      {airQuality && (
-        <View>
-          <Text>Air Quality Category:</Text>
-          <Text>{category || 'No category data available'}</Text>
-          <Text>{recommendation}</Text>
-        </View>
-      )}
-    </View>
-  );
+
+  return 
 };
 
-export default AirQuality;
+export default PollutionApi;

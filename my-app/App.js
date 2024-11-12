@@ -6,22 +6,24 @@ import Header from './components/Header'
 import InfoWidgetContainer from './components/InfoWidgetContainer'
 import MapSearch from './components/MapSearch'
 import GenerateButton from './components/GenerateButton'
-import WeatherApi from './components/Api/WeatherApi';
-import CarbonApi from './components/Api/CarbonApi'
 import MapApi from './components/Api/MapApi'
-import PollutionApi from './components/Api/PollutionApi'
+// import PollutionRecs from './components/Recommendations/PollutionRecs';
+// import CarbonRecs from './components/Recommendations/CarbonRecs';
+import Recommendations from './components/Recommendations/Recommendations';
+import WeatherApi from './components/Api/WeatherApi';
 
 export default function HomeScreen() {
   return ( 
     <View style={styles.body}>
-      <Header></Header> 
-      <MapSearch></MapSearch>
-      <InfoWidgetContainer></InfoWidgetContainer>
-      <WeatherApi/>
-      <CarbonApi />
-      <PollutionApi />
+      <Header /> 
+      <MapSearch />
+      <InfoWidgetContainer />
+      {/* <CarbonRecs />
+      <PollutionRecs /> */}
+      {/* <WeatherApi /> */}
+      <Recommendations />
       <MapApi />
-      <GenerateButton></GenerateButton>
+      <GenerateButton />
     </View>
   )
 };
