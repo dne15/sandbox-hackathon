@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { View, Text } from "react-native";
-import PollutionApi from '../Api/PollutionApi'
 
 function PollutionRecs({ airRecommendation, airQuality }) {
     

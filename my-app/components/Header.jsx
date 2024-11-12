@@ -1,22 +1,10 @@
-
-// export default function Header() {
-
-
-//     return (
-//         <>
-//             <h1>EcoConscious</h1>
-//         </>
-//     )
-
-// }
-
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const Header = () => {
   return (
     <View style={styles.header}>
-      <Text style={styles.headerText}>Aura</Text>
+      <Text style={styles.headerText}>ClimaBuddy</Text>
     </View>
   );
 };

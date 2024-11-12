@@ -9,7 +9,7 @@ import PollutionApi from './Api/PollutionApi';
 import Recommendations from './Recommendations/Recommendations';
 
 import { useState } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 export default function UpStream() {
 
@@ -29,10 +29,21 @@ const [recommendation, setRecommendation] = useState(null);
   }
 
   return(
-    <View>
-        <Header /> 
-        <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
-        <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
+    <>
+        <View style={styles.body}>
+          <Header /> 
+          <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
+          <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
+          <MapApi />
+          <Recommendations  
+            weatherData={weatherData} 
+            carbonIntensity={carbonIntensity}
+            airRecommendation={recommendation}
+            airQuality={airQualityData}
+          />
+          <GenerateButton />
+        </View>
+
         <WeatherApi cityName={cityName} setWeatherData={setWeatherData} />
         {weatherData && (
         <CarbonApi setCarbonIntensity={setCarbonIntensity} />
@@ -44,15 +55,17 @@ const [recommendation, setRecommendation] = useState(null);
           setAirQualityData={setAirQualityData}
           setRecommendation={setRecommendation}
         />
+
       )}
-        <MapApi />
-        <Recommendations  
-          weatherData={weatherData} 
-          carbonIntensity={carbonIntensity}
-          airRecommendation={recommendation}
-          airQuality={airQualityData}
-        />
-        <GenerateButton />
-    </View>
+    </>
   )
 }
+
+const styles = StyleSheet.create({
+  body: {
+    backgroundColor: "#f4f1de",
+    height: "100%",
+    overflow: "scroll"
+  }
+  
+});
