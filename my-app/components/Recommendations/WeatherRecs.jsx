@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 function WeatherRecs({ weather }) {
     const [temp, setTemp] = useState(null);
@@ -197,7 +197,7 @@ function WeatherRecs({ weather }) {
         <View>
           <Text>Weather Recommendations: 
           {recommendations.map((rec, index) => (
-            <Text>{rec}</Text>
+            <Text style={styles.container}>{rec}</Text>
           ))}</Text>
         </View>
       ) : (
@@ -209,3 +209,9 @@ function WeatherRecs({ weather }) {
 
 
 export default WeatherRecs;
+
+const styles = StyleSheet.create({
+  container: {
+    color: "#001629",
+  }
+})

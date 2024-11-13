@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 function PollutionRecs({ airRecommendation, airQuality }) {
     
@@ -6,7 +6,7 @@ function PollutionRecs({ airRecommendation, airQuality }) {
     <View>
         {airQuality ? (
             <View>
-                <Text> Air Quality Recomendation: {airRecommendation || 'No recommendation available'} </Text>
+                <Text style={styles.container}> Air Quality Recomendation: {airRecommendation || 'No recommendation available'} </Text>
                 </View>
         ) : (
             <Text>Loading...</Text>
@@ -18,3 +18,9 @@ function PollutionRecs({ airRecommendation, airQuality }) {
 }
 
 export default PollutionRecs
+
+const styles = StyleSheet.create({
+    container: {
+      color: "#001629",
+    }
+  })

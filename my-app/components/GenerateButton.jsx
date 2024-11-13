@@ -14,17 +14,17 @@ const styles = StyleSheet.create({
     container: {
         height: 50,
         width: "100%",
-        backgroundColor: "#3d405b",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#2f4858"
     },
     button: {
         width: 300,
         height: 30,
         borderRadius: 25,
-        backgroundColor: "#e07a5f",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#e07a5f"
     },
     buttonText: {
         color: "#f4f1de",

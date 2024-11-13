@@ -4,7 +4,7 @@ export default function MapSearch({ onTyping, onSubmit }) {
     return (
         <View style={styles.container}>
             <View style={styles.form}>
-                <TextInput onChangeText={onTyping} style={styles.bar} placeholder="Search" />
+                <TextInput onChangeText={onTyping} style={styles.bar} placeholder="Where are ya?" placeholderTextColor={"#F2F4F8"}/>
                 <TouchableOpacity style={styles.button}>
                     <Text onPress={onSubmit} style={styles.buttonText}>Search</Text>
                 </TouchableOpacity>
@@ -17,20 +17,21 @@ const styles = StyleSheet.create({
     container: {
         height: 50,
         width: "100%",
-        backgroundColor: "#3d405b",
         justifyContent: "center",
-        alignItems: "center"
-    },
+        alignItems: "center",
+        backgroundColor: "#0B6F5D",
+        },
     form: {
         flexDirection: "row",
         alignItems: "center"
     },
     bar: {
+        backgroundColor: "#e07a5f",
         width: 250,
         height: 25,
         borderRadius: 25,
         paddingLeft: 10,
-        backgroundColor: "#f4f1de"
+        color: "#F2F4F8",
     },
     button: {
         marginLeft: 10,
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     buttonText: {
-        color: "#f4f1de",
+        color: "#F2F4F8",
         fontSize: 16,
-    }
+    },
 });
