@@ -34,8 +34,8 @@ const [region, setRegion] = useState(null);
       setRegion({
         latitude: weatherData.lat,
         longitude: weatherData.lon,
-        latitudeDelta: 0.3,
-        longitudeDelta: 0.3,
+        latitudeDelta: 0.2,
+        longitudeDelta: 0.2,
       });
     }
   }, [weatherData]);
