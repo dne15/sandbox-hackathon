@@ -5,7 +5,7 @@ export default function InfoWidget ({ title, data, icon }) {
 
     return (
         <View style={styles.widget}>
-            <Text>{icon}</Text>
+            {/* <Text>{icon}</Text> */}
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.data}>{data}</Text>
         </View>
@@ -17,19 +17,21 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        width: "25%",
-        
+        width: "23%",
+        borderWidth: 1,
+        borderColor: "#2f4858",
+        borderRadius: 5
     },
     title: {
         textAlign: "center",
         fontWeight: "bold",
-        fontSize: "13px",
+        fontSize: 13,
         marginTop: "2%",
-        color: "#F2F4F8"
+        color: "#2f4858"
     },
     data: {
         marginTop: "5%",
         textAlign: "center",
-        color: "#F2F4F8"
+        color: "#2f4858"
     }
   });

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         width: "100%",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#e07a5f"
+        backgroundColor: "#2f4858"
     },
     button: {
         width: 300,

@@ -58,7 +58,7 @@ function CarbonRecs({ carbonIntensity }) {
   };
 
   return (
-    <View >
+    <View style={styles.container3}>
       {carbonIntensity ? (
         <View style={styles.info}>
           <Text style={styles.container}>Carbon Intesity</Text>
@@ -76,7 +76,7 @@ export default CarbonRecs;
 const styles = StyleSheet.create({
   container: {
     color: "#001629",
-    width: '25%'
+    width: '25%',
   },
   container2: {
     width: "75%"
@@ -84,5 +84,11 @@ const styles = StyleSheet.create({
   info: {
     display: "flex",
     flexDirection: "row"
+  },
+  container3: {
+    borderWidth: 1,
+    borderColor: "#2f4858",
+    borderRadius: 10,
+    padding: 5,
   }
 })
