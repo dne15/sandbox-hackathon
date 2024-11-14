@@ -7,7 +7,8 @@ function WeatherRecs({ weather }) {
   const [recommendation, setRecommendation] = useState("");
 
   // Parse celsius as a number to avoid incorrect comparisons
-  const celsius = weather ? parseFloat((weather.temperature - 273.15).toFixed(1)) : null;
+  const celsius = weather.temperature
+  // weather ? ((weather.temperature - 0).toFixed(1)) : null;
 
   useEffect(() => {
     if (celsius !== null) {
@@ -17,15 +18,15 @@ function WeatherRecs({ weather }) {
       else if (celsius > 15) setTemp("moderate");
       else if (celsius > 10) setTemp("lowTemp");
       else setTemp("veryLowTemp");
-      console.log("Temperature category:", temp); // Debugging log
     }
   }, [celsius]);
 
   useEffect(() => {
+    console.log("Temperature category updated:", temp); // Debugging log
     if (weather && temp) {
       setRecommendation(weatherRecommendation(weather.description, temp));
     }
-  }, [weather, temp]);
+  }, [temp, weather]);
 
   const weatherRecommendation = (condition, tempCategory) => {
     if (tempCategory === 'veryHighTemp') {
