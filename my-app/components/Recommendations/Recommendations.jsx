@@ -7,8 +7,8 @@ import { View, StyleSheet } from "react-native";
 function Recommendations({ weatherData, carbonIntensity, airRecommendation, airQuality }) {
    return (
      <View style={styles.container}>
-       <CarbonRecs carbonIntensity={carbonIntensity} />
-       <PollutionRecs airRecommendation={airRecommendation} airQuality={airQuality} />
+       {carbonIntensity && <CarbonRecs carbonIntensity={carbonIntensity} />}
+      {airQuality && <PollutionRecs airRecommendation={airRecommendation} airQuality={airQuality} />}
        {weatherData && <WeatherRecs weather={weatherData} />}
      </View>
    )
