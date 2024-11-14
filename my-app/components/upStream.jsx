@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F2F4F8",
   },
   body: {
-    padding: 16,  // Optional padding for inside content
+    padding: 10,  // Optional padding for inside content
     alignItems: 'center',
   },
 });

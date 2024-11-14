@@ -38,13 +38,14 @@ export default function MapSearch({ onTyping, onSubmit }) {
 
     return (
         <View style={styles.container}>
+            {/* <Ionicons name="leaf-outline" size={24} color="#4CAF50" style={styles.icon} /> */}
             <View style={styles.searchContainer}>
                 <Ionicons name="search" size={20} color="#4CAF50" style={styles.searchIcon} />
                 <TextInput
                     onChangeText={handleTyping}
                     value={input}
                     style={styles.searchInput}
-                    placeholder="Where are ya?"
+                    placeholder="Where are you?"
                     placeholderTextColor="#A8BFA4"
                 />
                 <TouchableOpacity style={styles.button} onPress={onSubmit}>
@@ -64,6 +65,7 @@ export default function MapSearch({ onTyping, onSubmit }) {
                 />
             )}
         </View>
+    
     );
 }
 
@@ -80,6 +82,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 4,
         elevation: 3,
+        // flexDirection: 'row',
+        // alignItems: 'center',
     },
     searchContainer: {
         flexDirection: 'row',
@@ -88,7 +92,9 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         paddingHorizontal: 15,
         height: 50,
+        // flex: 1,
     },
+
     searchIcon: {
         marginRight: 10,
     },

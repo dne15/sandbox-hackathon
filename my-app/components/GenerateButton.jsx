@@ -6,8 +6,8 @@ export default function GenerateButton({ onPress }) {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.buttonContent}>
-        <Ionicons name="refresh-outline" size={20} color="#FFFFFF" style={styles.icon} />
-        <Text style={styles.buttonText}>Generate Recommendations</Text>
+        {/* <Ionicons name="refresh-outline" size={20} color="#FFFFFF" style={styles.icon} /> */}
+        <Text style={styles.buttonText}>✨Personalised AI Recommendations</Text>
       </View>
     </TouchableOpacity>
   );
