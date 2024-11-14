@@ -2,10 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function InfoWidget ({ title, data, icon }) {
-
     return (
         <View style={styles.widget}>
-            {/* <Text>{icon}</Text> */}
+            <Text style={styles.icon}>{icon}</Text>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.data}>{data}</Text>
         </View>
@@ -14,24 +13,36 @@ export default function InfoWidget ({ title, data, icon }) {
 
 const styles = StyleSheet.create({
     widget: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "23%",
-        borderWidth: 1,
-        borderColor: "#2f4858",
-        borderRadius: 5
+        alignItems: 'center',
+        backgroundColor: '#E2F4E2', // Very light green
+        padding: 12,
+        borderRadius: 8,
+        width: '23%',
+        borderWidth: 0.5,
+        borderColor: '#D1E5D0',
+        shadowColor: '#A8D3A3',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.15,
+        shadowRadius: 5,
+        elevation: 2,
+    },
+    icon: {
+        fontSize: 20,
+        color: '#4CAF50',
+        marginBottom: 5,
     },
     title: {
-        textAlign: "center",
-        fontWeight: "bold",
-        fontSize: 13,
-        marginTop: "2%",
-        color: "#2f4858"
+        fontSize: 10,
+        color: '#A8BFA4', // Subtle grayish green
+        fontFamily: 'Poppins-Light',
+        textAlign: 'center',
+        marginBottom: 3,
     },
     data: {
-        marginTop: "5%",
-        textAlign: "center",
-        color: "#2f4858"
+        fontSize: 14,
+        fontWeight: '600',
+        color: '#2C6D4B', // Deeper green
+        fontFamily: 'Poppins',
+        textAlign: 'center',
     }
-  });
+});
