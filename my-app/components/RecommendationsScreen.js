@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Animated } from 'react-native';
+import InfoWidgetContainer from './InfoWidgetContainer';
 
 function RecommendationsScreen({ route, navigation }) {
   const { weatherData, carbonIntensity, airRecommendation, airQuality } = route.params || {};
@@ -38,33 +39,8 @@ function RecommendationsScreen({ route, navigation }) {
         <Text style={styles.quantumExplanation}>
           Our quantum algorithm analyzes real-time environmental data, offering eco-conscious recommendations with precision.
         </Text>
-        
-        <View style={styles.statsContainer}>
-          {weatherData && (
-            <View style={styles.statItem}>
-              <Text style={styles.statTitle}>Temp</Text>
-              <Text style={styles.statValue}>{weatherData.temp}°C</Text>
-            </View>
-          )}
-          {weatherData && (
-            <View style={styles.statItem}>
-              <Text style={styles.statTitle}>Weather</Text>
-              <Text style={styles.statValue}>{weatherData.description}</Text>
-            </View>
-          )}
-          {carbonIntensity && (
-            <View style={styles.statItem}>
-              <Text style={styles.statTitle}>Carbon</Text>
-              <Text style={styles.statValue}>{carbonIntensity}</Text>
-            </View>
-          )}
-          {airQuality && (
-            <View style={styles.statItem}>
-              <Text style={styles.statTitle}>AQI</Text>
-              <Text style={styles.statValue}>{airQuality.aqi}</Text>
-            </View>
-          )}
-        </View>
+
+        <InfoWidgetContainer weatherData={weatherData} airQualityData={airQuality} carbonIntensity={carbonIntensity} />
         
         <View style={styles.recommendationsContainer}>
           {recommendations.map((rec, index) => (
