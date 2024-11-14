@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Header from './Header';
@@ -14,7 +13,6 @@ import PollutionApi from './Api/PollutionApi';
 import Recommendations from './Recommendations/Recommendations';
 
 export default function UpStream() {
-  const navigation = useNavigation();
   const [cityInput, setCityInput] = useState("");
   const [cityName, setCityName] = useState("");
   const [weatherData, setWeatherData] = useState(null);
@@ -42,46 +40,38 @@ export default function UpStream() {
     }
   }, [weatherData]);
 
-  const handleGenerateRecommendations = () => {
-    navigation.navigate('Recommendations', {
-      weatherData,
-      carbonIntensity,
-      airRecommendation: recommendation,
-      airQuality: airQualityData
-    });
-  };
-
-  return(
+  return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.body}>
-      <Header /> 
+      {/* Search Component (renders suggestions separately) */}
       <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
-      <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
-      <MapApi region={region} />
-      <Recommendations  
-        weatherData={weatherData} 
-        carbonIntensity={carbonIntensity}
-        airRecommendation={recommendation}
-        airQuality={airQualityData}
-      />
-      <GenerateButton onPress={handleGenerateRecommendations} />
 
-      <WeatherApi cityName={cityName} setWeatherData={setWeatherData} />
-      {weatherData && (
-        <CarbonApi setCarbonIntensity={setCarbonIntensity} />
-      )}
-      {weatherData && (
-        <PollutionApi
-          latitude={weatherData.lat}
-          longitude={weatherData.lon}
-          setAirQualityData={setAirQualityData}
-          setRecommendation={setRecommendation}
+      <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.body}>
+        <Header />
+        <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
+        <MapApi region={region} />
+        <Recommendations  
+          weatherData={weatherData} 
+          carbonIntensity={carbonIntensity}
+          airRecommendation={recommendation}
+          airQuality={airQualityData}
         />
-      )}
-    </ScrollView>
+        <GenerateButton onPress={() => {/* Your navigation or recommendation function */}} />
+
+        <WeatherApi cityName={cityName} setWeatherData={setWeatherData} />
+        {weatherData && (
+          <CarbonApi setCarbonIntensity={setCarbonIntensity} />
+        )}
+        {weatherData && (
+          <PollutionApi
+            latitude={weatherData.lat}
+            longitude={weatherData.lon}
+            setAirQualityData={setAirQualityData}
+            setRecommendation={setRecommendation}
+          />
+        )}
+      </ScrollView>
     </SafeAreaView>
-    
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -89,7 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F2F4F8",
   },
   body: {
-    padding: 10,  // Optional padding for inside content
+    padding: 10,
     alignItems: 'center',
   },
 });
