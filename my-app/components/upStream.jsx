@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import Header from './Header';
 import InfoWidgetContainer from './InfoWidgetContainer';
 import MapSearch from './MapSearch';
@@ -50,7 +52,8 @@ export default function UpStream() {
   };
 
   return(
-    <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.body}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.body}>
       <Header /> 
       <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
       <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
@@ -76,6 +79,8 @@ export default function UpStream() {
         />
       )}
     </ScrollView>
+    </SafeAreaView>
+    
   )
 }
 
