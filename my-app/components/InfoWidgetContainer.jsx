@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-evenly",
         width: "100%",
-        minHeight: "12.5%",
+        minHeight: "9%",
         padding: "1.25%",
     },
 });

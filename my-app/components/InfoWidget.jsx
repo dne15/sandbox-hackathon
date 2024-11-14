@@ -24,10 +24,10 @@ const capitalize = (text) => {
 
 const styles = StyleSheet.create({
     widget: {
-        flexDirection: 'row',         // Row layout for icon and text
+        flexDirection: 'column',         // Row layout for icon and text
         alignItems: 'center',
         backgroundColor: '#E2F4E2',
-        padding: 12,
+        padding: 5,
         borderRadius: 8,
         width: '23%',
         borderWidth: 0.5,
@@ -39,16 +39,16 @@ const styles = StyleSheet.create({
         elevation: 2,
     },
     icon: {
-        marginRight: 10,              // Spacing between icon and text
+        marginBottom: 5,              // Spacing between icon and text
     },
     textContainer: {
-        flex: 1,                      // Allows text to take remaining space
+        alignItems: 'center',                     // Allows text to take remaining space
     },
     title: {
-        fontSize: 10,
+        fontSize: 14,
         color: '#A8BFA4',
         fontFamily: 'Poppins-Light',
-        textAlign: 'left',
+        textAlign: 'center',
         marginBottom: 3,
     },
     data: {
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         color: '#2C6D4B',
         fontFamily: 'Poppins',
-        textAlign: 'left',
+        textAlign: 'center',
         flexWrap: 'wrap',            // Allow text to wrap onto the next line
-        maxWidth: '90%',             // Limit the width of the text container to prevent overflow
+        maxWidth: '95%',             // Limit the width of the text container to prevent overflow
     }
 });

@@ -3,12 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Make sure to install @expo/vector-icons
 
 const Header = () => {
-  return (
-    <View style={styles.header}>
-      <Ionicons name="leaf-outline" size={24} color="#4CAF50" style={styles.icon} />
-      <Text style={styles.headerText}>ClimaBuddy</Text>
-    </View>
-  );
+  // return (
+  //   <View style={styles.header}>
+  //     <Ionicons name="leaf-outline" size={24} color="#4CAF50" style={styles.icon} />
+  //     <Text style={styles.headerText}>ClimaBuddy</Text>
+  //   </View>
+  // );
 };
 
 const styles = StyleSheet.create({
