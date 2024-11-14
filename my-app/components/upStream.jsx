@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Header from './Header';
 import InfoWidgetContainer from './InfoWidgetContainer';
@@ -50,20 +50,18 @@ export default function UpStream() {
   };
 
   return(
-    <>
-      <View style={styles.body}>
-        <Header /> 
-        <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
-        <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
-        <MapApi region={region} />
-        <Recommendations  
-          weatherData={weatherData} 
-          carbonIntensity={carbonIntensity}
-          airRecommendation={recommendation}
-          airQuality={airQualityData}
-        />
-        <GenerateButton onPress={handleGenerateRecommendations} />
-      </View>
+    <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.body}>
+      <Header /> 
+      <MapSearch onTyping={handleTyping} onSubmit={handleSubmit} />
+      <InfoWidgetContainer weatherData={weatherData} airQualityData={airQualityData} carbonIntensity={carbonIntensity} />
+      <MapApi region={region} />
+      <Recommendations  
+        weatherData={weatherData} 
+        carbonIntensity={carbonIntensity}
+        airRecommendation={recommendation}
+        airQuality={airQualityData}
+      />
+      <GenerateButton onPress={handleGenerateRecommendations} />
 
       <WeatherApi cityName={cityName} setWeatherData={setWeatherData} />
       {weatherData && (
@@ -77,14 +75,16 @@ export default function UpStream() {
           setRecommendation={setRecommendation}
         />
       )}
-    </>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  body: {
+  scrollContainer: {
     backgroundColor: "#F2F4F8",
-    height: "100%",
-    overflow: "scroll"
+  },
+  body: {
+    padding: 16,  // Optional padding for inside content
+    alignItems: 'center',
   },
 });

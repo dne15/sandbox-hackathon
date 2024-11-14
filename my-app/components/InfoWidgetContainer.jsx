@@ -1,27 +1,40 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import InfoWidget from './InfoWidget'
-
 
 export default function InfoWidgetContainer ({ weatherData, airQualityData, carbonIntensity }) {
     return (
         <View style={styles.container}>
-            <InfoWidget icon="🌦️" title="Weather" data={weatherData ? weatherData.description : ''}></InfoWidget>
-            <InfoWidget icon="🔥" title="Temp" data={weatherData ? `${weatherData.temperature}ºC` : ''}></InfoWidget>
-            <InfoWidget icon="🌬️" title="Air" data={airQualityData ? airQualityData.indexes[0].category : ''}></InfoWidget>
-            <InfoWidget icon="🌪️" title="Carbon" data={carbonIntensity ? carbonIntensity : ''}></InfoWidget>
+            <InfoWidget 
+                iconName="sunny-outline" 
+                title="Weather" 
+                data={weatherData ? weatherData.description : ''}
+            />
+            <InfoWidget 
+                iconName="thermometer-outline" 
+                title="Temp" 
+                data={weatherData ? `${weatherData.temperature}ºC` : ''}
+            />
+            <InfoWidget 
+                iconName="leaf-outline" 
+                title="Air" 
+                data={airQualityData ? airQualityData.indexes[0].category : ''}
+            />
+            <InfoWidget 
+                iconName="cloud-outline" 
+                title="Carbon" 
+                data={carbonIntensity ? carbonIntensity : ''}
+            />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        display: "flex",
         flexDirection: "row",
-        // alignItems: "center",
         justifyContent: "space-evenly",
         width: "100%",
         minHeight: "12.5%",
         padding: "1.25%",
     },
-  });
+});
