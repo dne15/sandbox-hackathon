@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList } from "react-native";
+import { Ionicons } from '@expo/vector-icons'; // Make sure to install @expo/vector-icons
 
 export default function MapSearch({ onTyping, onSubmit }) {
     const [input, setInput] = useState("");
@@ -37,13 +38,14 @@ export default function MapSearch({ onTyping, onSubmit }) {
 
     return (
         <View style={styles.container}>
-            <View style={styles.form}>
+            <View style={styles.searchContainer}>
+                <Ionicons name="search" size={20} color="#4CAF50" style={styles.searchIcon} />
                 <TextInput
                     onChangeText={handleTyping}
                     value={input}
-                    style={styles.bar}
+                    style={styles.searchInput}
                     placeholder="Where are ya?"
-                    placeholderTextColor={"#F2F4F8"}
+                    placeholderTextColor="#A8BFA4"
                 />
                 <TouchableOpacity style={styles.button} onPress={onSubmit}>
                     <Text style={styles.buttonText}>Search</Text>
@@ -67,47 +69,59 @@ export default function MapSearch({ onTyping, onSubmit }) {
 
 const styles = StyleSheet.create({
     container: {
-        height: 50,
         width: "100%",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#0B6F5D",
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        backgroundColor: '#E7F6E7',
+        borderBottomWidth: 1,
+        borderBottomColor: '#A8D3A3',
+        shadowColor: '#82B27C',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 3,
     },
-    form: {
-        flexDirection: "row",
-        alignItems: "center"
-    },
-    bar: {
-        backgroundColor: "#e07a5f",
-        width: 250,
-        height: 25,
+    searchContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#F1FDF4',
         borderRadius: 25,
-        paddingLeft: 10,
-        color: "#F2F4F8",
-    },
-    button: {
-        marginLeft: 10,
-        paddingVertical: 5,
         paddingHorizontal: 15,
-        borderRadius: 25,
-        backgroundColor: "#e07a5f",
-        justifyContent: "center",
-        alignItems: "center"
+        height: 50,
     },
-    buttonText: {
-        color: "#F2F4F8",
+    searchIcon: {
+        marginRight: 10,
+    },
+    searchInput: {
+        flex: 1,
+        height: '100%',
+        color: '#3C763D',
+        fontFamily: 'Poppins-Regular',
         fontSize: 16,
     },
+    button: {
+        backgroundColor: '#4CAF50',
+        paddingVertical: 8,
+        paddingHorizontal: 15,
+        borderRadius: 20,
+        marginLeft: 10,
+    },
+    buttonText: {
+        color: '#FFFFFF',
+        fontSize: 16,
+        fontFamily: 'Poppins-Bold',
+    },
     suggestionsContainer: {
-        position: "absolute",
-        top: 50,
-        width: "100%",
-        backgroundColor: "#fff",
-        zIndex: 1,
+        backgroundColor: '#F1FDF4',
+        borderRadius: 10,
+        marginTop: 5,
+        maxHeight: 200,
     },
     suggestion: {
-        padding: 10,
+        padding: 12,
         borderBottomWidth: 1,
-        borderBottomColor: "#ccc",
+        borderBottomColor: '#D1E5D0',
+        color: '#3C763D',
+        fontFamily: 'Poppins-Regular',
     },
 });
