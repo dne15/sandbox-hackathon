@@ -3,7 +3,6 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import Header from './Header';
 import InfoWidgetContainer from './InfoWidgetContainer';
 import MapSearch from './MapSearch';
 import GenerateButton from './GenerateButton';

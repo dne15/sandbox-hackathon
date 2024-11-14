@@ -27,6 +27,7 @@ const PollutionApi = ({ setAirQualityData, latitude, longitude, setRecommendatio
         );
         const data = await response.json();
         setAirQualityData(data);
+        console.log(data);
         const recommendation = data?.healthRecommendations?.generalPopulation;
         setRecommendation(recommendation);
       } catch (error) {

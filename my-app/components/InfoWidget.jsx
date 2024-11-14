@@ -2,17 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function InfoWidget ({ title, data, iconName }) {
+export default function InfoWidget({ iconName, title, data, color }) {
     return (
-        <View style={styles.widget}>
-            <Ionicons name={iconName} size={24} color="#4CAF50" style={styles.icon} />
-            <View style={styles.textContainer}>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.data}>{capitalize(data)}</Text>
-            </View>
+        <View style={[styles.widget, { backgroundColor: color }]}>
+            <Ionicons name={iconName} size={32} />
+            <Text style={[styles.title]}>{title}</Text>
+            <Text style={styles.data}>{data}</Text>
         </View>
     );
 }
+
 
 // Helper function to capitalize each word
 const capitalize = (text) => {
