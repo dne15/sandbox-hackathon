@@ -1,33 +1,25 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export default function GenerateButton() {
-    return (
-        <View style={styles.container}>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>What can you do?</Text>
-            </TouchableOpacity>
-        </View>
-    );
+export default function GenerateButton({ onPress }) {
+  return (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <Text style={styles.buttonText}>Generate Recommendations</Text>
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height: 50,
-        width: "100%",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#2f4858"
-    },
-    button: {
-        width: 300,
-        height: 30,
-        borderRadius: 25,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#e07a5f"
-    },
-    buttonText: {
-        color: "#f4f1de",
-        fontSize: 16,
-    }
+  button: {
+    backgroundColor: '#4CAF50',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    margin: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });

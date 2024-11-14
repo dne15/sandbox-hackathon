@@ -1,3 +1,6 @@
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Header from './Header';
 import InfoWidgetContainer from './InfoWidgetContainer';
 import MapSearch from './MapSearch';
@@ -8,18 +11,15 @@ import MapApi from './Api/MapApi';
 import PollutionApi from './Api/PollutionApi';
 import Recommendations from './Recommendations/Recommendations';
 
-import { useState, useEffect } from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
-
 export default function UpStream() {
-
-const [cityInput, setCityInput] = useState("");
-const [cityName, setCityName] = useState("");
-const [weatherData, setWeatherData] = useState(null);
-const [airQualityData, setAirQualityData] = useState(null);
-const [carbonIntensity, setCarbonIntensity] = useState(null);
-const [recommendation, setRecommendation] = useState(null);
-const [region, setRegion] = useState(null);
+  const navigation = useNavigation();
+  const [cityInput, setCityInput] = useState("");
+  const [cityName, setCityName] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
+  const [airQualityData, setAirQualityData] = useState(null);
+  const [carbonIntensity, setCarbonIntensity] = useState(null);
+  const [recommendation, setRecommendation] = useState(null);
+  const [region, setRegion] = useState(null);
 
   function handleTyping(text) {
     setCityInput(text);
@@ -40,6 +40,14 @@ const [region, setRegion] = useState(null);
     }
   }, [weatherData]);
 
+  const handleGenerateRecommendations = () => {
+    navigation.navigate('Recommendations', {
+      weatherData,
+      carbonIntensity,
+      airRecommendation: recommendation,
+      airQuality: airQualityData
+    });
+  };
 
   return(
     <>
@@ -54,21 +62,21 @@ const [region, setRegion] = useState(null);
           airRecommendation={recommendation}
           airQuality={airQualityData}
         />
-        <GenerateButton />
+        <GenerateButton onPress={handleGenerateRecommendations} />
       </View>
 
       <WeatherApi cityName={cityName} setWeatherData={setWeatherData} />
-        {weatherData && (
-      <CarbonApi setCarbonIntensity={setCarbonIntensity} />
-        )}
-        {weatherData && (
-      <PollutionApi
-        latitude={weatherData.lat}
-        longitude={weatherData.lon}
-        setAirQualityData={setAirQualityData}
-        setRecommendation={setRecommendation}
-      />
-        )}
+      {weatherData && (
+        <CarbonApi setCarbonIntensity={setCarbonIntensity} />
+      )}
+      {weatherData && (
+        <PollutionApi
+          latitude={weatherData.lat}
+          longitude={weatherData.lon}
+          setAirQualityData={setAirQualityData}
+          setRecommendation={setRecommendation}
+        />
+      )}
     </>
   )
 }
@@ -79,5 +87,4 @@ const styles = StyleSheet.create({
     height: "100%",
     overflow: "scroll"
   },
-  
 });
