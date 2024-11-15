@@ -80,7 +80,8 @@ EcoSage is more than an app—it’s a step toward a sustainable future. By empo
 Clone the repository, install dependencies, and launch the app using Expo Go!  
 
 ```bash
-git clone https://github.com/your-repo/eco-sage.git  
-cd eco-sage  
+git clone https://github.com/your-repo/sandbox-hackathon.git  
+cd my-app  
 npm install  
-expo start  
+npx expo start
+open expo go to view app
