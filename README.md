@@ -3,7 +3,7 @@ EcoSage is a React Native application designed to empower individuals with real-
 
 ---
 
-![EcoSage Key Features](https://snipboard.io/Tgrb1m.jpg)  
+![EcoSage Key Features](https://snipboard.io/lairoI.jpg)  
 
 ---
 
