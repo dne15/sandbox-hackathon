@@ -3,6 +3,10 @@ EcoSage is a React Native application designed to empower individuals with real-
 
 ---
 
+![EcoSage Key Features](https://snipboard.io/Tgrb1m.jpg)  
+
+---
+
 ## 🛠 Problem Statement  
 Many people are unaware of how their daily choices impact climate change. From transportation habits to energy use, small actions can contribute significantly to greenhouse gas emissions. This lack of awareness can lead to inaction, hindering the adoption of sustainable practices.  
 
